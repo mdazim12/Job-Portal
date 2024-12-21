@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Lottie from "lottie-react";
 import LottieRegiterData from './../../assets/loitte/register.json'
+import AuthContext from '../../context/AuthContext/AuthContext';
 
 const Register = () => {
+
+
+  const {createUser} = useContext(AuthContext)
 
   const handleRegister = e => {
     e.preventDefault();
@@ -10,15 +14,17 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    // Email validation: At least 6 characters, one uppercase, one lowercase, and one number
-    const emailPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
+    
 
-    if (!emailPattern.test(email)) {
-        console.error("Email must be at least 6 characters, include one uppercase letter, one lowercase letter, and one number.");
-        return;
-    }
+    createUser(email,password)
+    .then(result => {
+      console.log(result.user)
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
 
-    console.log(email, password);
+
 };
 
 
