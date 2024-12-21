@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import AuthContext from '../../../context/AuthContext/AuthContext';
 import logo from './../../../assets/loitte/logo.png'
+import avatar from './../../../assets/loitte/user.jpg'
+
 
 const Navbar = () => {
 
@@ -64,6 +66,18 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+              
+              {
+                user ? <>
+                     <img className='w-12 mx-5 rounded-full' src={user.photoURL} alt="" />
+                </> 
+                :
+                
+                <>
+                
+                <img className='w-12 mx-5' src={avatar} alt="" />
+                </>
+              }
 
                 {
                     user ? <>
