@@ -1,10 +1,11 @@
 import React from 'react';
 import { LuMapPin } from "react-icons/lu";
+import { Link } from 'react-router-dom';
 
 
 const HotJobCard = ({ job }) => {
 
-     const {company_logo ,title,company,location,description,requirements,salaryRange} = job;
+     const {_id,company_logo ,title,company,location,description,requirements,salaryRange} = job;
 
     console.log(job)
     return (
@@ -32,13 +33,15 @@ const HotJobCard = ({ job }) => {
                         requirements.map(Skill => <p className='bg-gray-100 text-center p-1 rounded-md hover:text-blue-500'>{Skill} </p>)
                     }
                 </div>
-                <div className="card-actions justify-end">
+                <div className="card-actions items-center my-3">
                     <div className='float-left text-left'>
-                        <h2 className='text-left float-left'> 
-                            Salary :{salaryRange.min} - {salaryRange.max}
+                        <h2 className='text-left float-left text-lg'> 
+                            Salary :{salaryRange.min} - {salaryRange.max} {salaryRange.currency}
                         </h2>
                     </div>
+                    <Link to={`jobs/${_id}`}>
                     <button className="btn btn-primary">Apply </button>
+                    </Link>
                 </div>
             </div>
         </div>
