@@ -7,7 +7,7 @@ const JobApply = () => {
 
     const {user} = useAuth();
     const {id} = useParams()
-    console.log(id,user)
+    
 
     const submitHadleJobApplication = e => {
         e.preventDefault();
@@ -76,11 +76,11 @@ const JobApply = () => {
                             <label className="label">
                                 <span className="label-text">Resume In URL</span>
                             </label>
-                            <input type="url" placeholder="resume " name='resume' className="input input-bordered" required />
+                            <input type="url" placeholder="Resume " name='resume' className="input input-bordered" required />
                         </div>
                        
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Sub</button>
+                            <button className="btn btn-primary">Submit Application</button>
                         </div>
                     </form>
                 </div>
