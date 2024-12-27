@@ -20,7 +20,8 @@ const Navbar = () => {
     }
 
     const links = <>
-        <NavLink className= 'mx-4 text-lg font-medium' to={'/'}>Home</NavLink>
+        <NavLink className= 'mx-4 text-lg font-medium' to='/'>Home</NavLink>
+        <NavLink className= 'mx-4 text-lg font-medium' to='/myApplication'>My Application</NavLink>
         <NavLink className= 'mx-4 text-lg  font-medium'>About</NavLink>
         <NavLink className= 'mx-4 text-lg font-medium'>Contact</NavLink>
 
