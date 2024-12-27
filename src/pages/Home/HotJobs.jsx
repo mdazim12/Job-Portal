@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import HotJobCard from './HotJobCard';
+import AuthContext from '../../context/AuthContext/AuthContext';
 
 const HotJobs = () => {
 
     const [jobs, setJobs] = useState([]);
+   
 
    
 

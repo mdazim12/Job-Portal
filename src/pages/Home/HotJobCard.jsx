@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 
 
 const HotJobCard = ({ job }) => {
+   
+    
 
      const {_id,company_logo ,title,company,location,description,requirements,salaryRange} = job;
 
-    console.log(job)
+ 
     return (
         <div className="card card-compact bg-base-100  shadow-xl">
             

@@ -3,26 +3,36 @@ import LottieLogin from './../../assets/loitte/login.json'
 import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext/AuthContext';
 import SoicalLogin from '../shared/SoicalLogin/SoicalLogin';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
 
-    const {signInUser} = useContext(AuthContext)
+    const {signInUser} = useContext(AuthContext);
+   
 
-    const handleSign = (e)=> {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
+    const location = useLocation();
 
+    const navigate = useNavigate();
 
-        signInUser(email,password)
-        .then(result => {
-            console.log(result.user)
+    const form = location || '/'
+
+   const handleSign = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signInUser(email, password)
+        .then((result) => {
+            console.log(result.user);
+            const redirectPath = location.state?.from?.pathname || '/';
+            navigate(redirectPath);
         })
-        .catch(error => {
-            console.log(error.message)
-        })
-    }
+        .catch((error) => {
+            console.error(error.message);
+        });
+};
+
     return (
         <div className="hero  min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
