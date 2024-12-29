@@ -1,7 +1,10 @@
 import React from 'react';
 import Swal from 'sweetalert2';
+import useAuth from '../../hooks/useAuth';
 
 const AddJob = () => {
+
+    const {user } = useAuth()
 
 
     const handleAddJob = e => {
@@ -33,12 +36,12 @@ const AddJob = () => {
                             Swal.fire({
                                 position: "top-end",
                                 icon: "success",
-                                title: "Hob has been added",
+                                title: "Job has been added",
                                 showConfirmButton: false,
                                 timer: 1500
                               });
             
-                              navigate('/myApplication')
+                              
                         }
          })
 
@@ -208,7 +211,7 @@ const AddJob = () => {
                             <label className="label">
                                 <span className="label-text">HR Email</span>
                             </label>
-                            <input  className='input input-bordered' placeholder='Company Name' type="text" name="hr_email" id="" />
+                            <input defaultValue={user?.email}  className='input input-bordered' placeholder='Company Name' type="text" name="hr_email" id="" />
                         </div>
 
                           {/* Hr Eemail */}
@@ -225,7 +228,7 @@ const AddJob = () => {
 
 
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Login</button>
+                        <button className="btn btn-primary">Add Job</button>
                     </div>
                 </form>
             </div>

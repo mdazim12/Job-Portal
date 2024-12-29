@@ -23,7 +23,7 @@ const Navbar = () => {
         <NavLink className= 'mx-4 text-lg font-medium' to='/'>Home</NavLink>
         <NavLink className= 'mx-4 text-lg font-medium' to='/myApplication'>My Application</NavLink>
         <NavLink className= 'mx-4 text-lg  font-medium' to= '/addJob' >Add Job</NavLink>
-        <NavLink className= 'mx-4 text-lg font-medium'>Contact</NavLink>
+        <NavLink className= 'mx-4 text-lg font-medium' to= '/myPostedJobs'>My Posted Jobs</NavLink>
 
     </>
 
